@@ -5,9 +5,9 @@ This repository contains the final code for the Adversarial Robustness task in T
 ## Best Public Leaderboard Result
 
 ```text
-Public leaderboard score: 0.49
-Method: PGD Adversarial Training (PGD-3, 100 epochs) on raw [0,1] inputs
-Score = 0.5 × clean accuracy + 0.5 × robustness accuracy
+Public leaderboard score: 0.565813
+Method: ResNet-18 with clean warm-up and PGD-3 adversarial training
+Score = 0.5 × clean accuracy + 0.5 × robust accuracy
 ```
 
 ## Required Files
@@ -71,10 +71,10 @@ Running `train_robust.py` prints per-epoch training and validation metrics:
 [clean  ] Epoch 01/100 | train_loss=... train_acc=... | val_clean=... | best=...
 [PGD-3]  Epoch 06/100 | train_loss=... train_acc=... | val_clean=... | best=...
 ...
-Saved → model.pt  |  best clean val acc: 0.7094
+Saved → model.pt  |  best composite score: 0.5843  (clean=0.7878)
 Estimating robustness on 512 val samples with PGD-7...
-PGD-7 robust acc (512 samples): 0.3340
-Estimated score: 0.5217
+PGD-7 robust acc (512 samples): 0.3770
+Estimated score: 0.5824
 ```
 
 The script saves only the **best clean validation accuracy** checkpoint to `model.pt`.
